@@ -6,7 +6,7 @@ const Project = require('./project-model.js')
 
 const router = express.Router();
 
-router.get('/project', (req, res) => {
+router.get('/projects', (req, res) => {
   Project.findProject()
   .then(project => {
     res.json(project);
@@ -47,7 +47,7 @@ router.get('/project', (req, res) => {
 //     });
 // });
 
-router.post('/project', (req, res) => {
+router.post('/projects', (req, res) => {
     const projectData = req.body;
 
     Project.addProject(projectData)
@@ -59,6 +59,7 @@ router.post('/project', (req, res) => {
       res.status(500).json({ message: 'Failed to create new project' });
     });
   });
+
 
 
   router.get('/tasks', (req, res) => {
@@ -73,7 +74,7 @@ router.post('/project', (req, res) => {
   });
 });
 
-router.post('/project/:id/tasks', (req, res) => {
+router.post('/projects/:id/tasks', (req, res) => {
     const taskData = req.body;
     const id = req.params.id
 
@@ -86,6 +87,8 @@ router.post('/project/:id/tasks', (req, res) => {
       res.status(500).json({ message: 'Failed to create new task' });
     });
   });
+
+
 
 
   router.get('/resources', (req, res) => {

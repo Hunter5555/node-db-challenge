@@ -13,17 +13,17 @@ module.exports = {
 };
 
 function findProject() {
-    return db('project')
+    return db('projects')
 }
 
 function findProjectById(id) {
-    return db('project')
+    return db('projects')
       .where({ id })
       .first();
   }
 
 //   function findTasks(id) {
-//     return db('project')
+//     return db('projects')
 //       .select(
 //         'task.id',
 //         'project.name',
@@ -35,9 +35,9 @@ function findProjectById(id) {
 //       .orderBy('task_id');
 //   }
 
-  function addProject(project) {
-    return db('project')
-      .insert(project)
+  function addProject(projects) {
+    return db('projects')
+      .insert(projects)
     //   .then(id => {
     //     return findById(id);
     //   });
@@ -50,7 +50,7 @@ function findProjectById(id) {
 //       'task.completed',
 //       'project.project_name'
 //       )
-//       .join('project', 'project.id', 'task.project_id')
+//       .join('projects', 'project.id', 'task.project_id')
 //       .where({ project_id });
 // }
 
@@ -62,7 +62,7 @@ function findProjectById(id) {
 
 function findTask() {
     return db('task')
-    .join('project', 'project.id', 'task.project_id')
+    .join('projects', 'project.id', 'task.project_id')
     .select('task.task_name',
           'task.task_description',
           'task.task_notes',
