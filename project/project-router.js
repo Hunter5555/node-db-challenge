@@ -20,19 +20,6 @@ router.get('/projects', (req, res) => {
 // router.get('/project/:id', (req, res) => {
 //     const { id } = req.params;
 
-//     Project.findProjectById(id)
-//     .then(project => {
-//         if (project) {
-//       res.json(project);
-//         } else {
-//             res.status(404).json({ message: 'Failed to find project with that ID.'})
-//         }
-//     })
-//     .catch(error => {
-//         console.log(error);
-//       res.status(500).json({ message: 'Failed to find project' });
-//     });
-//   });
 
 // router.get('/project/:id/tasks', (req, res) => {
 //     const { id } = req.params;
